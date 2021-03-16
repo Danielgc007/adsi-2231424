@@ -1,0 +1,17 @@
+body {
+    background-color: #472c49;
+}
+article {
+    background-color: #b433ce;
+    color: #23312d;
+    font-family: Tahoma;
+    margin: 100px auto;
+    padding: 20px;
+    width: 480px;   
+}
+article h1 {
+    text-align: center;
+}
+article p {
+   text-align: justify;
+}
