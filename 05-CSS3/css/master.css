@@ -28,3 +28,8 @@ h1 span a:visited {
     text-decoration: none;
     float: left;
 }
+@media (max-width: 375px) {
+    main {
+        width: 275px;
+    }
+}
