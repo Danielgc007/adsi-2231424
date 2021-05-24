@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>challenge</title>
+    <style>
+        body {
+            margin: 0px;
+            padding: 0px;
+            font-family: sans-serif;
+        }
+        div.principal {
+            background: url(imgs/OPM_Logo.png) no-repeat center;
+            background-size: contain;
+            margin: 0px auto;
+            margin-top: -50px;
+            margin-bottom: -90px;
+            padding-bottom: 40px;
+            width: 100%;
+            height: 280px;
+        }
+        section.imagenes {
+            margin: auto;
+            margin-bottom: 40px;
+            width: 100%;
+        }
+        section.saitama1 {
+            background: url(imgs/saitama1.jpg) no-repeat center;
+            background-size: 175%;
+            display: inline-block;
+            height: 220px;
+            margin: 0px auto;
+            margin-left: 200px;
+            width: 220px;
+        }
+        section.saitama2 {
+            background: url(imgs/saitama2.jpg) no-repeat center;
+            background-size: 175%;
+            display: inline-block;
+            height: 220px;
+            margin-left: 20px;
+            width: 220px;
+            margin-top: 35px;
+
+        }
+        section.saitama3 {
+            background: url(imgs/saitama1.jpg) no-repeat center;
+            background-size: 175%;
+            display: inline-block;
+            height: 220px;
+            width: 220px;
+            margin-top: 35px;
+            margin-left: 20px;
+        }
+        section.saitama4 {
+            background: url(imgs/saitama2.jpg) no-repeat center;
+            background-size: 175%;
+            display: inline-block;
+            height: 220px;
+            width: 220px;
+            margin-top: 35px;
+            margin-left: 20px;
+        }
+        section.saitama1 div.uno {
+            color: #fff;
+            background-color: #000;
+            margin-top: 174px;
+            padding: 13px;
+            opacity: 0.7;
+            transition: 0.4s;
+            text-align: center;
+        }
+        section.saitama2 div.dos {
+            color: #fff;
+            background-color: #000;
+            margin-top: 174px;
+            padding: 13px;
+            opacity: 0.7;
+            transition: 0.4s;
+            text-align: center;
+        }
+        section.saitama3 div.tres {
+            color: #fff;
+            background-color: #000;
+            margin-top: 174px;
+            padding: 13px;
+            opacity: 0.7;
+            transition: 0.4s;
+            text-align: center;
+        }
+        section.saitama4 div.cuatro {
+            color: #fff;
+            background-color: #000;
+            margin-top: 174px;
+            padding: 13px;
+            opacity: 0.7;
+            transition: 0.4s;
+            text-align: center;
+        }
+        a {
+            text-decoration: none;
+        }
+        section.saitama1:hover div.uno {
+            transform: translateY(-30px);
+            padding-bottom: 43px;
+        }
+        section.saitama2:hover div.dos {
+            transform: translateY(-30px);
+            padding-bottom: 43px;
+        }
+        section.saitama3:hover div.tres {
+            transform: translateY(-30px);
+            padding-bottom: 43px;
+        }
+        section.saitama4:hover div.cuatro {
+            transform: translateY(-30px);
+            padding-bottom: 43px;
+        }
+        div.footer {
+            height: 220px;
+            margin: auto;     
+            padding-right: -10px;
+            width: 100%;
+        }
+        section.saitama5 {
+            background: url(imgs/saitama3.jpg) no-repeat center;
+            background-size: 120%;
+            background-position: -15px -25px;
+            display: inline-block;
+            margin-top: 1.4px;
+            margin-left: 202px;
+            margin-right: 20px;
+            float: left;
+            height: 218px;
+            width: 220px;
+        }
+        section.texto {
+            margin: 0px auto;
+            border: 2px dotted #999999;
+            padding-top: 15px;
+            padding-right: 351px;
+            margin-left: 200px;
+            height: 202px;
+            width: 598px;
+        }
+        div.parrafo {
+            margin-top: -7px;
+            text-align: justify;
+            width: 720px;
+        }
+        h1 {
+            margin-top: 0px;
+        }
+        p {
+            display: inline;
+            line-height: 1.2em;
+            font-size: 12px;
+        }
+        div.footer2 {
+            margin: 0px auto;
+            margin-top: 40px;
+            padding-right: -10px;
+            height: 220px;
+            width: 100%;
+        }
+        section.genos {
+            background: url(imgs/genos.png) no-repeat center;
+            background-size: 120%;
+            background-position: -15px -25px;
+            display: inline-block;
+            margin-top: 1.4px;
+            margin-right: 20px;
+            margin-left: 201px;
+            float: left;
+            height: 218px;
+            width: 220px;
+        }
+        section.texto2 {
+            border: 2px dotted #afaeae;
+            margin: 0px auto;
+            padding-top: 15px;
+            padding-right: 352px;
+            margin-left: 199px;
+            height: 202px;
+            width: 598px;
+        }
+        div.parrafo2 {
+            margin-top: -7px;
+            text-align: justify;
+            width: 720px;
+        }
+        h1.titulo2 {
+            margin-top: 0px;
+        }
+        p.dos {
+            display: inline;
+            line-height: 1.2em;
+            font-size: 12px;
+        }
+        @media (max-width: 1170px) {
+            section.saitama1 {
+                margin-left: 40px;
+            }
+            section.texto {
+                margin-left: 40px;
+            }
+            section.texto2 {
+                margin-left: 40px;
+            }
+            section.saitama5 {
+                margin-left: 40px;
+            }
+            section.genos {
+                margin-left: 40px;
+            }
+        }
+        @media (max-width: 1024px) {
+            div.contenedor {
+                width: 1024px;
+            }
+            div.principal {
+                width: 700px;
+                margin-left: 160px;
+            }
+            section.imagenes {
+                margin-left: -5px;
+            }
+            section.saitama1 {
+                margin-left: 40px;
+            }
+            section.saitama5 {
+                margin-left: 40px;
+            }
+            section.texto {
+                width: 465px;
+            }
+            section.genos {
+                margin-left: 40px;
+            }
+            section.texto2 {
+                width: 465px;
+            }
+        }
+        @media (max-width: 770px) {
+            div.contenedor {
+                width: 500px;
+            }
+            section.imagenes {
+                width: 500px;
+                margin-left: 135px;
+            }
+            div.principal {
+                width: 500px;
+                margin-left: 135px;
+            }
+            section.saitama1 {
+                margin-left: 0px;
+                margin-right: 20px;
+            }
+            section.saitama3 {
+                margin-left: 0px;
+                margin-right: 20px;
+            }
+            section.texto {
+                font-size: 10px;
+                border: 0px;
+                padding: 0px;
+                width: 220px;
+                height: 195px;
+                overflow: scroll;
+            }
+            section.saitama5 {
+                margin-left: 0px;
+                margin-top: -1px;
+            }
+            h1.titulo2 {
+                width: 200px;
+                margin-top: 20px;
+                margin-bottom: 20px;
+            }
+            div.parrafo {
+                width: 200px;
+            }
+            div.footer {
+                margin-left: 135px; 
+                height: 217px;
+                border: 2px dotted #afaeae ; 
+                width: 480px;  
+            }
+            section.genos {
+                margin-left: 0px;
+                margin-top: -1px;
+            }
+            section.texto2 {
+                font-size: 10px;
+                border: 0px;
+                padding: 0px;
+                width: 220px;
+                height: 195px;
+                overflow: scroll;
+            }
+            h1.tituloGenos {
+                width: 200px;
+                margin-top: 20px;
+                margin-bottom: 20px;
+            }
+            div.parrafo2 {
+                width: 200px;
+            }
+            div.footer2 {
+                margin-left: 135px;
+                height: 217px;
+                border: 2px dotted #afaeae ; 
+                width: 480px;  
+            }
+        }
+        @media (max-width: 540px) {
+            div.principal {
+                margin-left: 35px;
+            }
+            section.imagenes {
+                margin-left: 70px;
+            }
+            div.footer {
+                margin-left: 70px;
+            }
+            div.footer2 {
+                margin-left: 70px;
+            }
+        }
+        @media (max-width: 411px) {
+            div.principal {
+                margin-left: 10px;
+            }
+            section.imagenes {
+                margin-left: 10px;
+            }
+            div.footer {
+                margin-left: 10px;
+            }
+            div.footer2 {
+                margin-left: 10px;
+            }
+        }
+        @media (max-width: 414px) {
+            div.principal {
+                margin-left: 15px;
+            }
+            section.imagenes {
+                margin-left: 25px;
+            }
+            div.footer {
+                margin-left: 25px;
+            }
+            div.footer2 {
+                margin-left: 25px;
+            }
+        }
+        @media (max-width: 380px) {
+            div.contenedor {
+                width: 300px;
+            }
+            div.principal {
+                width: 300px;
+                margin-left: 30px;
+            }
+            section.imagenes {
+                width: 300px;
+                margin-left: 30px;
+            }
+            section.saitama1 {
+                margin-left: 40px;
+            }
+            section.saitama2 {
+                margin-left: 40px;
+            }
+            section.saitama3 {
+                margin-left: 40px;
+            }
+            section.saitama4 {
+                margin-left: 40px;
+            }
+            section.saitama5 {
+                margin-left: 0px;
+            }
+            div.footer {
+                height: 411px;
+                width: 219px;
+                margin-left: 70px;
+                border: 2px dotted #afaeae;
+            }
+            section.texto {
+                width: 220px;
+                margin-left: 0px;
+            }
+            div.parrafo {
+                width: 219px;
+                margin-left: 0px;
+            }
+            section.genos {
+                margin-left: 0px;
+            }
+            div.footer2 {
+                height: 411px;
+                width: 219px;
+                margin-left: 70px;
+                border: 2px dotted #afaeae;
+            }
+            section.texto2 {
+                width: 220px;
+                margin-left: 0px;
+            }
+            div.parrafo2 {
+                width: 219px;
+                margin-left: 0px;
+            }
+        }
+        @media (max-width: 320px) {
+            div.principal {
+                margin-left: 10px;
+            }
+            section.imagenes {
+                margin-left: 20px;
+            }
+            div.footer {
+                margin-left: 60px;
+            }
+            div.footer2 {
+                margin-left: 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="contenedor">
+        <div class="principal"></div>
+        <section class="imagenes">
+            <a href="">
+                <section class="saitama1"><div class="uno">OPM (season 1)</div></section>
+                <section class="saitama2"><div class="dos">OPM (season 2)</div></section>
+                <section class="saitama3"><div class="tres">OPM (season 3)</div></section>
+                <section class="saitama4"><div class="cuatro">OPM (season 4)</div></section>
+            </a>
+        </section>
+        <div class="footer">
+            <section class="saitama5"></section>
+            <section class="texto">
+                <h1 class="titulo2">SAITAMA SENSEI</h1>
+                <div class="parrafo">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis magnam architecto quibusdam quaerat maiores molestiae atque obcaecati. Possimus exercitationem ex numquam veniam dignissimos, porro odio repellendus, quisquam nostrum aliquid aut eos suscipit culpa, provident optio! Nihil magnam rerum, sit nostrum voluptatum sint? Quibusdam ratione libero rerum debitis, nesciunt unde quam, officiis cupiditate ab quaerat omnis magnam eligendi? Hic repudiandae harum neque, eveniet fugit ut enim qui, consequuntur, perspiciatis earum illo porro quasi cupiditate veniam iste autem est reiciendis omnis nobis molestias</p>
+                </div>
+            </section>
+        </div>
+        <div class="footer2">
+            <section class="genos"></section>
+            <section class="texto2">
+                <h1 class="tituloGenos">GENOS</h1>
+                <div class="parrafo2">
+                    <p class="dos">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis magnam architecto quibusdam quaerat maiores molestiae atque obcaecati. Possimus exercitationem ex numquam veniam dignissimos, porro odio repellendus, quisquam nostrum aliquid aut eos suscipit culpa, provident optio! Nihil magnam rerum, sit nostrum voluptatum sint? Quibusdam ratione libero rerum debitis, nesciunt unde quam, officiis cupiditate ab quaerat omnis magnam eligendi? Hic repudiandae harum neque, eveniet fugit ut enim qui, consequuntur, perspiciatis earum illo porro quasi cupiditate veniam iste autem est reiciendis omnis nobis molestias
+                    </p>
+                </div>
+            </section>
+        </div>
+    </div>
+</body>
+</html>
