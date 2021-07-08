@@ -68,6 +68,12 @@
         height: 88px;
         position: relative;
     }
+    div.skin section.mode a#light {
+        background: url(imgs/btn-sun-light.png) no-repeat center;
+    }
+    div.skin section.mode a#dark {
+        background: url(imgs/btn-moon-dark.png) no-repeat center;
+    }
     main section a#light {
         display: inline-block;
         width: 58px;
@@ -103,10 +109,10 @@
         height: 761px;
         width: 500px;
     }
-    div.skin.dark nav.mode a#light {
+    div.skin.dark section.mode a#light {
         background: url(imgs/btn-sun-dark.svg) no-repeat center;
     }
-    div.skin.dark nav.mode a#dark {
+    div.skin.dark section.mode a#dark {
         background: url(imgs/btn-moon-light.png) no-repeat center;
     }
     </style>
@@ -195,6 +201,7 @@ light.onclick = function() {
         }
         dark.onclick = function() {
             skin.classList.add('dark');
+
 }
 //para asignar cada valor
 
