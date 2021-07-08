@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Challenge Calculator JS</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+    main {
+        height: 755px;
+    }
+    input[type="text"]{
+    width: 322px;
+    text-align: right;
+    height: 34px;
+    margin-top: 12px;
+    margin-bottom: 2px;
+    color: #fff;
+    background-color: transparent;
+    font-size: 30px; 
+    }
+    input[type=button]{
+    height: 70px;
+    margin: 0;
+    margin-left: 7px;
+    border-radius: 50px;
+    transition: 0.3s;
+    opacity: ;
+    padding: 0;
+    font-size: 30px;
+    width: 70px;
+    }
+    input[type=button]:hover {
+        filter: invert(1);
+    }
+    form {
+    width: 338px;
+    height: 400px;
+    margin: 0 auto;
+    }
+    table{
+    width: 338px;
+    height: 500px;
+    margin: 0 auto;
+    margin-top: 162px;
+    }
+    footer{
+    text-align: center;
+    font-size: 16px;
+    }
+    div.skin {
+        background: url(imgs/calculator-mackup-light.png) no-repeat center;
+        background-size: 350px;
+        margin: 0 auto;
+        margin-top: -44px;
+        transition: 0.3s ease-out;
+        position: absolute;
+        margin-left: -61px;
+        height: 761px;
+        width: 500px;
+    }
+    section.mode {
+        margin-top: 53px;
+        margin-left: 177px;
+        margin-bottom: -151px;
+        width: 128px;
+        height: 88px;
+        position: relative;
+    }
+    main section a#light {
+        display: inline-block;
+        width: 58px;
+        height: 60px;
+        transition: 0.5s;
+        background: url(imgs/btn-sun-light.png) no-repeat center;
+    }
+    main section a#dark {
+        display: inline-block;
+        width: 58px;
+        transition: 0.5s;
+        margin-left: -1px;
+        height: 60px;
+        background: url(imgs/btn-moon-dark.png) no-repeat center;
+    }
+    main section a#light:hover {
+        margin-left: -2px;
+        transform: scale(1.1);
+    }
+    main section a#dark:hover {
+        margin-left: 2px;
+        transform: scale(1.1);
+    }
+    /* Mode (light/dark) - - - - - - - - - - - - - - - - - - - - */
+    div.skin.dark {
+        background: url(imgs/calculator-mackup-dark.png) no-repeat center;
+        background-size: 350px;
+        margin: 0 auto;
+        margin-top: -44px;
+        transition: 0.3s ease-out;
+        position: absolute;
+        margin-left: -61px;
+        height: 761px;
+        width: 500px;
+    }
+    div.skin.dark nav.mode a#light {
+        background: url(imgs/btn-sun-dark.svg) no-repeat center;
+    }
+    div.skin.dark nav.mode a#dark {
+        background: url(imgs/btn-moon-light.png) no-repeat center;
+    }
+    </style>
+</head>
+<body>
+    <main>
+        <header>
+            <h1> <span><a href="index.html">&larr;</a></span> Challenge Calculator JS</h1>
+        </header>
+    <form name="fo">
+    <div class="skin">
+  <table>
+    <section class="mode">
+    <a href="javascript:;" id="light"></a>
+    <a href="javascript:;" id="dark"></a>
+    </section>
+    <tr>
+      <td colspan="5"><input type="text" name="valores" id="valores" onkeypress="return solonumeros(event)"></td>
+    </tr>
+
+    <tr>
+        <td id="eraser"><input type="button" value="❌" onclick="eliminar_todo()"></td>
+        <td id="backspace"><input type="button" value="↩" onclick="eliminar()"></td>
+        <td id="potencia"><input type="button" value="^" onclick="comprobar(value)"></td>
+        <td id="division"><input type="button" value="/" onclick="comprobar(value)"></td>
+    </tr>
+    <tr>
+        <td id="bt-1"><input type="button" value="1" onClick="retornar(value)"></td>
+        <td id="bt-2"><input type="button" value="2" onClick="retornar(value)"></td>
+        <td id="bt-3"><input type="button" value="3" onClick="retornar(value)"></td>
+        <td id="multiplicacion"><input type="button" value="*" onclick="comprobar(value)"></td>
+    </tr>
+
+    <tr>
+        <td id="bt-4"><input type="button" value="4" onClick="retornar(value)"></td>
+        <td id="bt-5"><input type="button" value="5" onClick="retornar(value)"></td>
+        <td id="bt-6"><input type="button" value="6" onClick="retornar(value)"></td>
+        <td id="resta"><input type="button" value="-" onclick="comprobar(value)"></td>
+    </tr>
+
+    <tr>
+      <td id="bt-7"><input type="button" value="7" onClick="retornar(value)"></td>
+      <td id="bt-8"><input type="button" value="8" onClick="retornar(value)"></td>
+      <td id="bt-9"><input type="button" value="9" onClick="retornar(value)"></td>
+      <td id="suma"><input type="button" value="+" onclick="comprobar(value)"></td>
+    </tr>
+
+    <tr>
+        <td id="mod"><input type="button" value="%" onClick="retornar(value)"></td>
+        <td id="bt-0"><input type="button" value="0" onClick="retornar(value)"></td>
+        <td id="punto"><input type="button" value="." onClick="retornar(value)"></td>
+        <td id="igual"><input type="button" value="=" onclick="calcular()"></td>
+    </tr>
+  </table>
+  </div>
+    </main>
+    <script>
+//para validar que solo se acepte numeros
+
+function solonumeros(e){
+
+    key=e.keyCode || e.which;
+
+    teclado=String.fromCharCode(key);
+
+    numeros="0123456789";
+
+    especiales="8-37-39-46";
+
+    tecla_especial=false;
+
+    for(var i in especiales){
+        if(key==especiales[i]){
+            tecla_especial=true;
+        }
+    }
+
+    if(numeros.indexOf(teclado)==-1 && !tecla_especial){
+        return false;
+    }
+
+}
+const skin  = document.querySelector('div.skin');
+light.onclick = function() {
+            skin.classList.remove('dark');
+        }
+        dark.onclick = function() {
+            skin.classList.add('dark');
+}
+//para asignar cada valor
+
+function retornar(num){
+
+    var anterior=document.fo.valores.value;
+
+    document.getElementById("valores").value=anterior+num;
+
+}
+
+//para eliminar ultimo caracter
+
+function eliminar(){
+
+    var anterior=document.fo.valores.value;
+
+    var nuevovalor=anterior.substring(0,anterior.length-1);
+
+    document.getElementById("valores").value=nuevovalor;
+}
+
+
+// para eliminar todo
+
+function eliminar_todo(){
+    document.fo.valores.value="";
+}
+
+
+//para  validar los signos
+
+function comprobar(num){ 
+//var anterior = document.fo.valores.value;
+var anterior = document.fo.valores.value;
+if(anterior==""){
+document.fo.valores.value="";
+}else{    
+    var anterior = document.fo.valores.value;
+    document.getElementById("valores").value=anterior+num;
+    esto=document.fo.valores.value;
+
+    record=0; 
+    igual=1; 
+    var letraRecord 
+    var b=0 
+    var letra="" 
+
+    for (a=1;a<esto.length;a++){      
+    if (esto.charAt(a)=="+" || esto.charAt(a)=="-" || esto.charAt(a)=="*" || esto.charAt(a)=="/" || esto.charAt(a)=="."){ 
+    igual=igual+1; 
+    letra=esto.charAt(a);
+    }else{ 
+         if(igual>record){record=igual;letraRecord=letra} 
+            igual=1 
+         } 
+         b=a 
+    }
+    
+    if(igual>record){
+      record=igual;
+      letraRecord=letra;
+    } 
+
+    if (record>2){
+        var anterior = esto;
+        var nuevovalor = anterior.substring(0, anterior.length-1);
+        document.getElementById("valores").value=nuevovalor;
+        record=0;b=0;igual=1;letra="";letraRecord="";
+    }     
+} 
+
+}
+
+
+//realizar las operacionesmatematicas
+
+
+function calcular(){
+    var resultado=eval(document.fo.valores.value);
+
+    if(resultado=="Infinity"){
+        document.fo.valores.value="No se puede dividir entre cero";
+
+    }else{
+        document.fo.valores.value=resultado;
+    }
+    
+}
+
+    </script>
+    
+    </body>
+</html>
