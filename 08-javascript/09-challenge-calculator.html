@@ -7,292 +7,361 @@
     <title>Challenge Calculator JS</title>
     <link rel="stylesheet" href="css/styles.css">
     <style>
-    main {
-        height: 755px;
-    }
-    input[type="text"]{
-    width: 322px;
-    text-align: right;
-    height: 34px;
-    margin-top: 12px;
-    margin-bottom: 2px;
-    color: #fff;
-    background-color: transparent;
-    font-size: 30px; 
-    }
-    input[type=button]{
-    height: 70px;
-    margin: 0;
-    margin-left: 7px;
-    border-radius: 50px;
-    transition: 0.3s;
-    opacity: ;
-    padding: 0;
-    font-size: 30px;
-    width: 70px;
-    }
-    input[type=button]:hover {
-        filter: invert(1);
-    }
-    form {
-    width: 338px;
-    height: 400px;
-    margin: 0 auto;
-    }
-    table{
-    width: 338px;
-    height: 500px;
-    margin: 0 auto;
-    margin-top: 162px;
-    }
-    footer{
-    text-align: center;
-    font-size: 16px;
-    }
-    div.skin {
-        background: url(imgs/calculator-mackup-light.png) no-repeat center;
-        background-size: 350px;
-        margin: 0 auto;
-        margin-top: -44px;
-        transition: 0.3s ease-out;
-        position: absolute;
-        margin-left: -61px;
-        height: 761px;
-        width: 500px;
-    }
-    section.mode {
-        margin-top: 53px;
-        margin-left: 177px;
-        margin-bottom: -151px;
-        width: 128px;
-        height: 88px;
-        position: relative;
-    }
-    div.skin section.mode a#light {
-        background: url(imgs/btn-sun-light.png) no-repeat center;
-    }
-    div.skin section.mode a#dark {
-        background: url(imgs/btn-moon-dark.png) no-repeat center;
-    }
-    main section a#light {
-        display: inline-block;
-        width: 58px;
-        height: 60px;
-        transition: 0.5s;
-        background: url(imgs/btn-sun-light.png) no-repeat center;
-    }
-    main section a#dark {
-        display: inline-block;
-        width: 58px;
-        transition: 0.5s;
-        margin-left: -1px;
-        height: 60px;
-        background: url(imgs/btn-moon-dark.png) no-repeat center;
-    }
-    main section a#light:hover {
-        margin-left: -2px;
-        transform: scale(1.1);
-    }
-    main section a#dark:hover {
-        margin-left: 2px;
-        transform: scale(1.1);
-    }
-    /* Mode (light/dark) - - - - - - - - - - - - - - - - - - - - */
-    div.skin.dark {
-        background: url(imgs/calculator-mackup-dark.png) no-repeat center;
-        background-size: 350px;
-        margin: 0 auto;
-        margin-top: -44px;
-        transition: 0.3s ease-out;
-        position: absolute;
-        margin-left: -61px;
-        height: 761px;
-        width: 500px;
-    }
-    div.skin.dark section.mode a#light {
-        background: url(imgs/btn-sun-dark.svg) no-repeat center;
-    }
-    div.skin.dark section.mode a#dark {
-        background: url(imgs/btn-moon-light.png) no-repeat center;
-    }
+        div.calculator {
+            background: url(imgs/calculator-mackup-light.png) no-repeat;
+            margin: 0px auto;
+            height: 736px;
+            width: 414px;
+        }
+        div.calculator nav.mode {
+            left: 147px;
+            position: relative;
+            top: 24px;
+            width: 120px;
+        }
+        div.calculator nav.mode a:last-child {
+            margin-left: -5px;
+        }
+        div.calculator nav.mode a#light {
+            background: url(imgs/btn-sun-light.png) no-repeat center;
+        }
+        div.calculator nav.mode a#dark {
+            background: url(imgs/btn-moon-dark.png) no-repeat center;
+        }
+        div.calculator nav.mode a {
+            display: inline-block;
+            height: 40px;
+            transition: transform 0.1s ease-in;
+            width: 60px;
+        }
+        div.calcultor nav.mode a {
+            display: inline-block;
+            transition: transform 0.2s ease-out; 
+        }
+        div.calculator nav.mode a:hover {
+            transform: scale(1.1);
+        }
+        div.calculator nav.mode a#dark:hover {
+            transform: scale(1.04) translateX(2px);
+        }
+        div.calculator nav.mode a#light:hover {
+            transform: scale(1.04) translateX(-2px);
+        }
+        div.display p#operation {
+            position: absolute;
+            text-align: right;
+            color: #fff;
+            font-size: 25px;
+            margin-left: 4px;
+            margin-top: 95px;
+            width: 405px;
+            height: 19px;
+        }
+        div.display h4#answer {
+            position: absolute;
+            color: #fff;
+            font-size: 55px;
+            text-align: right;
+            margin-left: 51px;
+            margin-top: 120px;
+            width: 356px;
+        }
+        div.calculator nav.buttons {
+            margin-top: 187px;
+        }
+        div.calculator nav.buttons ul::selection {
+            background-color: transparent;
+        }
+        div.calculator nav.buttons ul {
+            list-style: none;
+            margin: 0px;
+            padding: 0px;
+        }
+        div.calculator nav.buttons ul li {
+            border-radius: 50px;
+            margin-top: 7px;
+            margin-left: 9px;
+            transition: 0.2s;
+            display: inline-block;
+            height: 88px;
+            width: 88px;
+        }
+        div.calculator nav.buttons ul li#bt-punto {
+            margin-top: -15px;
+            height: 112px;
+            width: 88px;
+        }
+        div.calculator nav.buttons ul li:hover {
+            cursor: pointer;
+            filter: invert(1);
+            transform: scale(1.1);
+        }
+        div.calculator nav.buttons ul li#bt-clear {
+            background: url(imgs/bt-eraser.svg) no-repeat center;
+        }
+        div.calculator nav.buttons ul li#bt-bs {
+            background: url(imgs/bt-backspace.svg) no-repeat center;
+        }
+        div.calculator nav.buttons ul li#bt-potencia {
+            background: url(imgs/bt-potencia.svg) no-repeat center;
+        }
+        div.calculator nav.buttons ul li#bt-division {
+            background: url(imgs/bt-division.svg) no-repeat center;
+        }
+        div.calculator nav.buttons ul li#bt-1 {
+            background: url(imgs/bt-1.svg) no-repeat center;
+        }
+        div.calculator nav.buttons ul li#bt-2 {
+            background: url(imgs/bt-2.svg) no-repeat center;
+        }
+        div.calculator nav.buttons ul li#bt-3 {
+            background: url(imgs/bt-3.svg) no-repeat center;
+        }
+        div.calculator nav.buttons ul li#bt_multiplicacion {
+            background: url(imgs/multiplicacion.svg) no-repeat center;
+        }
+        div.calculator nav.buttons ul li#bt-4 {
+            background: url(imgs/bt-4.svg) no-repeat center;
+        }
+        div.calculator nav.buttons ul li#bt-5 {
+            background: url(imgs/bt-5.svg) no-repeat center;
+        }
+        div.calculator nav.buttons ul li#bt-6 {
+            background: url(imgs/bt-6.svg) no-repeat center;
+        }
+        div.calculator nav.buttons ul li#bt-resta {
+            background: url(imgs/bt-resta.svg) no-repeat center;
+        }
+        div.calculator nav.buttons ul li#bt-7 {
+            background: url(imgs/bt-7.svg) no-repeat center;
+        }
+        div.calculator nav.buttons ul li#bt-8 {
+            background: url(imgs/bt-8.svg) no-repeat center;
+        }
+        div.calculator nav.buttons ul li#bt-9 {
+            background: url(imgs/bt-9.svg) no-repeat center;
+        }
+        div.calculator nav.buttons ul li#bt-suma {
+            background: url(imgs/bt-suma.svg) no-repeat center;
+        }
+        div.calculator nav.buttons ul li#bt-modulo {
+            background: url(imgs/bt-mod.svg) no-repeat center;
+        }
+        div.calculator nav.buttons ul li#bt-0 {
+            background: url(imgs/bt-0.svg) no-repeat center;
+        }
+        div.calculator nav.buttons ul li#bt-punto {
+            background: url(imgs/bt-punto.svg) no-repeat center;
+        }
+        div.calculator nav.buttons ul li#bt-igual {
+            background: url(imgs/bt-igual.svg) no-repeat center;
+        }
+
+        /* darkmode*/
+
+        div.calculator.dark {
+            background: url(imgs/calculator-mackup-dark.png);
+            margin: 0px auto;
+            height: 736px;
+            width: 414px;
+        }
+        div.calculator.dark nav.mode a#light {
+            background: url(imgs/btn-sun-dark.svg) no-repeat center;
+        }
+        div.calculator.dark nav.mode a#dark {
+            background: url(imgs/btn-moon-light.svg) no-repeat center;
+        }
+        div.calculator.dark nav.buttons ul li#bt-clear {
+            background: url(imgs/bt-eraser-dark.svg) no-repeat center;
+        }
+        div.calculator.dark nav.buttons ul li#bt-bs {
+            background: url(imgs/bt-backspace-dark.svg) no-repeat center;
+        }
+        div.calculator.dark nav.buttons ul li#bt-potencia {
+            background: url(imgs/bt-potencia-dark.svg) no-repeat center;
+        }
+        div.calculator.dark nav.buttons ul li#bt-division {
+            background: url(imgs/bt-division-dark.svg) no-repeat center;
+        }
+        div.calculator.dark nav.buttons ul li#bt-1 {
+            background: url(imgs/bt-1-dark.svg) no-repeat center;
+        }
+        div.calculator.dark nav.buttons ul li#bt-2 {
+            background: url(imgs/bt-2-dark.svg) no-repeat center;
+        }
+        div.calculator.dark nav.buttons ul li#bt-3 {
+            background: url(imgs/bt-3-dark.svg) no-repeat center;
+        }
+        div.calculator.dark nav.buttons ul li#bt_multiplicacion {
+            background: url(imgs/bt-multiplicacion-dark.svg) no-repeat center;
+        }
+        div.calculator.dark nav.buttons ul li#bt-4 {
+            background: url(imgs/bt-4-dark.svg) no-repeat center;
+        }
+        div.calculator.dark nav.buttons ul li#bt-5 {
+            background: url(imgs/bt-5-dark.svg) no-repeat center;
+        }
+        div.calculator.dark nav.buttons ul li#bt-6 {
+            background: url(imgs/bt-6-dark.svg) no-repeat center;
+        }
+        div.calculator.dark nav.buttons ul li#bt-resta {
+            background: url(imgs/bt-resta-dark.svg) no-repeat center;
+        }
+        div.calculator.dark nav.buttons ul li#bt-7 {
+            background: url(imgs/bt-7-dark.svg) no-repeat center;
+        }
+        div.calculator.dark nav.buttons ul li#bt-8 {
+            background: url(imgs/bt-8-dark.svg) no-repeat center;
+        }
+        div.calculator.dark nav.buttons ul li#bt-9 {
+            background: url(imgs/bt-9-dark.svg) no-repeat center;
+        }
+        div.calculator.dark nav.buttons ul li#bt-suma {
+            background: url(imgs/bt-suma-dark.svg) no-repeat center;
+        }
+        div.calculator.dark nav.buttons ul li#bt-modulo {
+            background: url(imgs/bt-mod-dark.svg) no-repeat center;
+        }
+        div.calculator.dark nav.buttons ul li#bt-0 {
+            background: url(imgs/bt-0-dark.svg) no-repeat center;
+        }
+        div.calculator.dark nav.buttons ul li#bt-punto {
+            background: url(imgs/bt-punto-dark.svg) no-repeat center;
+        }
+        div.calculator.dark nav.buttons ul li#bt-igual {
+            background: url(imgs/bt-igual-dark.svg) no-repeat center;
+        }
     </style>
 </head>
 <body>
     <main>
         <header>
-            <h1> <span><a href="index.html">&larr;</a></span> Challenge Calculator JS</h1>
+            <h1> <span><a href="index.html">&larr;</a></span>Challenge Calculator</h1>
         </header>
-    <form name="fo">
-    <div class="skin">
-  <table>
-    <section class="mode">
-    <a href="javascript:;" id="light"></a>
-    <a href="javascript:;" id="dark"></a>
-    </section>
-    <tr>
-      <td colspan="5"><input type="text" name="valores" id="valores" onkeypress="return solonumeros(event)"></td>
-    </tr>
-
-    <tr>
-        <td id="eraser"><input type="button" value="❌" onclick="eliminar_todo()"></td>
-        <td id="backspace"><input type="button" value="↩" onclick="eliminar()"></td>
-        <td id="potencia"><input type="button" value="^" onclick="comprobar(value)"></td>
-        <td id="division"><input type="button" value="/" onclick="comprobar(value)"></td>
-    </tr>
-    <tr>
-        <td id="bt-1"><input type="button" value="1" onClick="retornar(value)"></td>
-        <td id="bt-2"><input type="button" value="2" onClick="retornar(value)"></td>
-        <td id="bt-3"><input type="button" value="3" onClick="retornar(value)"></td>
-        <td id="multiplicacion"><input type="button" value="*" onclick="comprobar(value)"></td>
-    </tr>
-
-    <tr>
-        <td id="bt-4"><input type="button" value="4" onClick="retornar(value)"></td>
-        <td id="bt-5"><input type="button" value="5" onClick="retornar(value)"></td>
-        <td id="bt-6"><input type="button" value="6" onClick="retornar(value)"></td>
-        <td id="resta"><input type="button" value="-" onclick="comprobar(value)"></td>
-    </tr>
-
-    <tr>
-      <td id="bt-7"><input type="button" value="7" onClick="retornar(value)"></td>
-      <td id="bt-8"><input type="button" value="8" onClick="retornar(value)"></td>
-      <td id="bt-9"><input type="button" value="9" onClick="retornar(value)"></td>
-      <td id="suma"><input type="button" value="+" onclick="comprobar(value)"></td>
-    </tr>
-
-    <tr>
-        <td id="mod"><input type="button" value="%" onClick="retornar(value)"></td>
-        <td id="bt-0"><input type="button" value="0" onClick="retornar(value)"></td>
-        <td id="punto"><input type="button" value="." onClick="retornar(value)"></td>
-        <td id="igual"><input type="button" value="=" onclick="calcular()"></td>
-    </tr>
-  </table>
-  </div>
+        <section>
+            <div class="calculator">
+                <nav class="mode">
+                    <a href="javascript:;" id="light"></a>
+                    <a href="javascript:;" id="dark"></a>
+                </nav>
+                <div class="display">
+                    <p id="operation"></p>
+                    <h4 id="answer"></h4>
+                </div>
+                <nav class="buttons">
+                    <ul>
+                        <li id="bt-clear"></li>
+                        <li id="bt-bs"></li>
+                        <li id="bt-potencia" data-opr="^"></li>
+                        <li id="bt-division" data-opr="/"></li>
+                        <li id="bt-1"  data-num="1"></li>
+                        <li id="bt-2"  data-num="2"></li>
+                        <li id="bt-3"  data-num="3"></li>
+                        <li id="bt_multiplicacion" data-opr="*"></li>
+                        <li id="bt-4"  data-num="4"></li>
+                        <li id="bt-5"  data-num="5"></li>
+                        <li id="bt-6"  data-num="6"></li>
+                        <li id="bt-resta" data-opr="-"></li>
+                        <li id="bt-7"  data-num="7"></li>
+                        <li id="bt-8"  data-num="8"></li>
+                        <li id="bt-9"  data-num="9"></li>
+                        <li id="bt-suma" data-opr="+"></li>
+                        <li id="bt-modulo" data-opr="%"></li>
+                        <li id="bt-0"  data-num="0"></li>
+                        <li id="bt-punto" data-opr="."></li>
+                        <li id="bt-igual" data-opr="="></li>
+                    </ul>
+                </nav>
+            </div>
+        </section>
     </main>
+
     <script>
-//para validar que solo se acepte numeros
-
-function solonumeros(e){
-
-    key=e.keyCode || e.which;
-
-    teclado=String.fromCharCode(key);
-
-    numeros="0123456789";
-
-    especiales="8-37-39-46";
-
-    tecla_especial=false;
-
-    for(var i in especiales){
-        if(key==especiales[i]){
-            tecla_especial=true;
+   // Variables & Constants - - - - - - - - - - - - - - - -
+        var nchars    = 0;
+        var allowOper = false;
+        var operation = document.getElementById('operation');
+        var answer    = document.getElementById('answer');
+        //
+        const skin  = document.querySelector('div.calculator');
+        const light = document.getElementById('light');
+        const dark  = document.getElementById('dark');
+        //
+        const btsNums = document.querySelectorAll('ul li[data-num]');
+        const btsOprs = document.querySelectorAll('ul li[data-opr]');
+        const btClear = document.getElementById('bt-clear');
+        const btBackS = document.getElementById('bt-bs');
+        const btigual = document.getElementById('bt-igual');
+        // Functions - - - - - - - - - - - - - - - -
+        function validateLength() {
+            if(nchars <= 28) {
+                nchars++;
+                return true;
+            } else {
+                return false;
+            }
         }
-    }
-
-    if(numeros.indexOf(teclado)==-1 && !tecla_especial){
-        return false;
-    }
-
-}
-const skin  = document.querySelector('div.skin');
-light.onclick = function() {
+        function addCharacter(c) {
+            if(c.constructor.name == 'Number') {
+                allowOper = true;
+            }
+            if(allowOper) {
+                if(validateLength()) {
+                    operation.innerText += c;
+                    if(c.constructor.name == 'String') {
+                        allowOper = false;
+                    }
+                }
+            }
+        }
+        function clearCharacters() {
+            operation.innerText = '';
+            answer.innerText    = '';
+            nchars              = 0;
+            allowOper           = false;
+        }
+        function backSpace() {
+            if(nchars > 0) {
+                operation.innerText = operation.innerText.slice(0, -1);
+                nchars--;
+            }
+        }
+        function igual() {
+            answer.innerText = eval(operation.innerText);
+        }
+        // Events Click - - - - - - - - - - - - - - - -
+        light.onclick = function() {
             skin.classList.remove('dark');
         }
         dark.onclick = function() {
             skin.classList.add('dark');
-
-}
-//para asignar cada valor
-
-function retornar(num){
-
-    var anterior=document.fo.valores.value;
-
-    document.getElementById("valores").value=anterior+num;
-
-}
-
-//para eliminar ultimo caracter
-
-function eliminar(){
-
-    var anterior=document.fo.valores.value;
-
-    var nuevovalor=anterior.substring(0,anterior.length-1);
-
-    document.getElementById("valores").value=nuevovalor;
-}
-
-
-// para eliminar todo
-
-function eliminar_todo(){
-    document.fo.valores.value="";
-}
-
-
-//para  validar los signos
-
-function comprobar(num){ 
-//var anterior = document.fo.valores.value;
-var anterior = document.fo.valores.value;
-if(anterior==""){
-document.fo.valores.value="";
-}else{    
-    var anterior = document.fo.valores.value;
-    document.getElementById("valores").value=anterior+num;
-    esto=document.fo.valores.value;
-
-    record=0; 
-    igual=1; 
-    var letraRecord 
-    var b=0 
-    var letra="" 
-
-    for (a=1;a<esto.length;a++){      
-    if (esto.charAt(a)=="+" || esto.charAt(a)=="-" || esto.charAt(a)=="*" || esto.charAt(a)=="/" || esto.charAt(a)=="."){ 
-    igual=igual+1; 
-    letra=esto.charAt(a);
-    }else{ 
-         if(igual>record){record=igual;letraRecord=letra} 
-            igual=1 
-         } 
-         b=a 
-    }
-    
-    if(igual>record){
-      record=igual;
-      letraRecord=letra;
-    } 
-
-    if (record>2){
-        var anterior = esto;
-        var nuevovalor = anterior.substring(0, anterior.length-1);
-        document.getElementById("valores").value=nuevovalor;
-        record=0;b=0;igual=1;letra="";letraRecord="";
-    }     
-} 
-
-}
-
-
-//realizar las operacionesmatematicas
-
-
-function calcular(){
-    var resultado=eval(document.fo.valores.value);
-
-    if(resultado=="Infinity"){
-        document.fo.valores.value="No se puede dividir entre cero";
-
-    }else{
-        document.fo.valores.value=resultado;
-    }
-    
-}
+        }
+        for (let i = 0; i < btsNums.length; i++) {
+            btsNums[i].onclick = function() {
+                addCharacter(parseInt(this.getAttribute('data-num')));
+                // var elm = this
+                // elm.classList.add('active')
+                // setTimeout(function() {
+                //     elm.classList.remove('active')
+                // }, 1500);
+            }
+        }
+        for (let i = 0; i < btsOprs.length; i++) {
+            btsOprs[i].onclick = function() {
+                addCharacter(this.getAttribute('data-opr'));
+            }
+        }
+        btClear.onclick = function() {
+            clearCharacters();
+        }
+        btBackS.onclick = function() {
+            backSpace();
+        }
+        btigual.onclick = function() {
+            igual();
+        }
 
     </script>
     
-    </body>
+</body>
 </html>
